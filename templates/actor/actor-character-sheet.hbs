@@ -156,60 +156,84 @@
                 </div>
             </div>
             {{!-- Hit Points --}}
-            <div class="meter-group">
-              <div class="label roboto-condensed-upper">
-                <span>{{ localize "HTBAH.HitPoints" }}</span>
-              </div>
-                {{#if editable}}
-                  {{#with system.baseattributes.health}}
-                    <div class="meter sectioned hit-points">
-                      <div class="progress hit-points
-                                  {{~#if (gt tempmax 0)}} temp-positive
-                                  {{~else if (lt tempmax 0)}} temp-negative{{/if}}" role="meter" aria-valuemin="0"
-                        aria-valuenow="{{ value }}" aria-valuemax="{{ max }}" style="--bar-percentage: {{ ../healthPercentage }}%">
-                        <div class="label">
-                          <input type="text" name="system.baseattributes.health.value" class="uninput value" 
-                                data-dtype="Number" value="{{ value }}" placeholder="0">
-                          <span class="separator">&sol;</span>
-                          <input type="text" name="system.baseattributes.health.max" class="uninput max" 
-                                data-dtype="Number" value="{{ max }}" placeholder="0">
-                          {{#if tempmax}}
-                          <span class="bonus">{{numberFormat tempmax signDisplay="always"}}</span>
-                          {{/if}}
-                        </div>
-                      </div>
-                      <div class="tmp">
-                        <input type="text" name="system.baseattributes.health.temp" data-dtype="Number" 
-                              placeholder="{{ localize "HTBAH.TMP" }}" value="{{ temp }}">
-                      </div>
-                    </div>
-                  {{/with}}
-                  {{else}}
-                  {{#with system.baseattributes.health}}
-                    <div class="meter sectioned hit-points">
-                      <div class="progress hit-points
-                                  {{~#if (gt tempmax 0)}} temp-positive
-                                  {{~else if (lt tempmax 0)}} temp-negative{{/if}}" role="meter" aria-valuemin="0"
-                        aria-valuenow="{{ value }}" aria-valuemax="{{ max }}" style="--bar-percentage: {{ ../healthPercentage }}%">
-                        <div class="label">
-                          <span class="value">{{ value }}</span>
-                          <span class="separator">&sol;</span>
-                          <span class="max">{{ max }}</span>
-                          {{#if tempmax}}
-                          <span class="bonus">{{numberFormat tempmax signDisplay="always"}}</span>
-                          {{/if}}
-                        </div>
-                        <input type="text" name="system.baseattributes.health.value" data-dtype="Number" placeholder="0"
-                          value="{{ value }}" hidden>
-                      </div>
-                      <div class="tmp">
-                        <input type="text" name="system.baseattributes.health.temp" data-dtype="Number" placeholder="{{ localize "HTBAH.TMP" }}"
-                          value="{{ temp }}">
-                      </div>
-                    </div>
-                  {{/with}}
-                {{/if}}
+            {{!-- Hit Points --}}
+          <div class="meter-group">
+            <div class="label roboto-condensed-upper">
+              <span>{{ localize "HTBAH.HitPoints" }}</span>
             </div>
+            {{#if  (and editable (or actor.isOwner @root.user.isGM))}}
+              {{!-- Edit Mode: Show direct input fields --}}
+              {{#with system.baseattributes.health}}
+                <div class="meter sectioned hit-points">
+                  <div class="progress hit-points {{~#if (gt tempmax 0)}} temp-positive{{~else if (lt tempmax 0)}} temp-negative\ {{/if}}" 
+                      role="meter" 
+                      aria-valuemin="0"
+                      aria-valuenow="{{ value }}" 
+                      aria-valuemax="{{ max }}" 
+                      style="--bar-percentage: {{ ../healthPercentage }}%">
+                    <div class="label">
+                      <input type="text" 
+                            name="system.baseattributes.health.value" 
+                            class="uninput value" 
+                            data-dtype="Number" 
+                            value="{{ value }}" 
+                            placeholder="0">
+                      <span class="separator">&sol;</span>
+                      <input type="text" 
+                            name="system.baseattributes.health.max" 
+                            class="uninput max" 
+                            data-dtype="Number" 
+                            value="{{ max }}" 
+                            placeholder="0">
+                      {{#if tempmax}}
+                        <span class="bonus">{{numberFormat tempmax signDisplay="always"}}</span>
+                      {{/if}}
+                    </div>
+                  </div>
+                  <div class="tmp">
+                    <input type="text" 
+                          name="system.baseattributes.health.temp" 
+                          data-dtype="Number" 
+                          placeholder="{{ localize "HTBAH.TMP" }}" 
+                          value="{{ temp }}">
+                  </div>
+                </div>
+              {{/with}}
+            {{else}}
+              {{!-- Play Mode: Toggle edit for current HP only --}}
+              {{#with system.baseattributes.health}}
+                <div class="meter sectioned hit-points">
+                  <div class="progress hit-points {{~#if (gt tempmax 0)}} temp-positive{{~else if (lt tempmax 0)}} temp-negative {{/if}}" 
+                      role="meter" 
+                      aria-valuemin="0"
+                      aria-valuenow="{{ value }}" 
+                      aria-valuemax="{{ max }}" 
+                      style="--bar-percentage: {{ ../healthPercentage }}%">
+                    <div class="label">
+                      <span class="value">{{ value }}</span>
+                      <input type="text" 
+                            name="system.baseattributes.health.value" 
+                            data-dtype="Number" 
+                            value="{{ value }}" 
+                            style="display: none">
+                      <span class="separator">&sol;</span>
+                      <span class="max">{{ max }}</span>
+                      {{#if tempmax}}
+                        <span class="bonus">{{numberFormat tempmax signDisplay="always"}}</span>
+                      {{/if}}
+                    </div>
+                  </div>
+                  <div class="tmp">
+                    <input type="text" 
+                          name="system.baseattributes.health.temp" 
+                          data-dtype="Number" 
+                          placeholder="{{ localize "HTBAH.TMP" }}" 
+                          value="{{ temp }}">
+                  </div>
+                </div>
+              {{/with}}
+            {{/if}}
+          </div>
           </div>
 
         </div>

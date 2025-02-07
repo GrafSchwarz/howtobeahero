@@ -1045,6 +1045,9 @@ async _onUseFavorite(event) {
       event.preventDefault();
       this._removeHeaderItem("weapon");
     });
+    
+    html.find(".meter > .hit-points").on("click", event => this._toggleEditHP(event, true));
+    html.find(".meter > .hit-points > input").on("blur", event => this._toggleEditHP(event, false));
   }
 
   _initializeTooltips() {
@@ -1296,52 +1299,51 @@ async _onUseFavorite(event) {
 
   /* -------------------------------------------- */
 
-/**
- * Toggle editing hit points.
- * @param {PointerEvent} event  The triggering event.
- * @protected
- */
-_toggleEditHP(event, edit) {
-  // If in editable mode, we don't need to toggle anything
-  if (this._mode === this.constructor.MODES.EDIT) return;
+  /**
+   * Toggle editing hit points.
+   * @param {PointerEvent} event  The triggering event.
+   * @protected
+   */
+  async _toggleEditHP(event, toggle) {
+    event.preventDefault();
+    event.stopPropagation();
 
-  const hitPointsSection = event.currentTarget;
-  if (!hitPointsSection) return;
-
-  // Get the first child which should be the progress div
-  const progress = hitPointsSection.children[0];
-  if (!progress) return;
-
-  const label = progress.querySelector(".label");
-  const input = progress.querySelector("input[hidden]");
-  
-  if (!label || !input) return;
-
-  // Toggle visibility for non-editable mode
-  if (edit) {
-    label.hidden = true;
-    input.hidden = false;
-    input.focus();
-  } else {
-    label.hidden = false;
-    input.hidden = true;
+    // Check if in edit mode
+    const isEditMode = this._mode === this.constructor.MODES.EDIT;
+    if (isEditMode) return;
     
-    // Update the displayed value in the label if it changed
-    const valueElement = label.querySelector('.value');
-    if (valueElement) {
-      valueElement.textContent = input.value;
+    // Check if user has permission to edit
+    const hasPermission = this.actor.isOwner || game.user.isGM;
+    if (!hasPermission) return;
+    
+    const container = event.currentTarget.closest(".hit-points");
+    const input = container.querySelector("input[name='system.baseattributes.health.value']");
+    const value = container.querySelector(".value");
 
-      // Update actor if value changed
-      const currentValue = Number(input.value);
-      const oldValue = this.actor.system.baseattributes.health.value;
-      if (currentValue !== oldValue) {
-        this.actor.update({
-          "system.baseattributes.health.value": currentValue
+    // Toggle edit mode
+    if (toggle) {
+      // Hide the span and show the input
+      value.style.display = "none";
+      input.style.display = "inline";
+      input.focus();
+      input.select();
+    } else {
+      // Hide the input and show the span
+      value.style.display = "inline";
+      input.style.display = "none";
+
+      // Update the actor with the new value
+      if (input.value !== value.textContent) {
+        await this.actor.update({
+          "system.baseattributes.health.value": Math.clamped(
+            parseInt(input.value) || 0,
+            0,
+            this.actor.system.baseattributes.health.max
+          )
         });
       }
     }
   }
-}
   
   /**
    * Handle the user toggling the sidebar collapsed state.

@@ -466,6 +466,81 @@ item-list-controls search .filter-control[data-action="sort"] {
   color: var(--color-text-light-0);
 }
 
+/* ---------------------------------- */
+/*  Rollable items                    */
+/* ---------------------------------- */
+
+/* Add d20 indicator for rollable content */
+/* Generic rollable indicator for all rollable elements */
+.how-to-be-a-hero .rollable {
+  position: relative;
+}
+
+.how-to-be-a-hero .rollable::after {
+  content: "\f6cf";  /* d20 icon */
+  font-family: var(--font-awesome);
+  font-weight: bold;
+  position: absolute;
+  font-size: 17px;
+  color: var(--htbah-color-gold);
+  text-shadow: 0 0 3px var(--color-shadow-dark);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.how-to-be-a-hero .rollable:hover::after {
+  opacity: 1;
+  transform: scale(1.1);
+  text-shadow: 0 0 6px var(--htbah-color-gold);
+}
+
+/* Specific positioning for different contexts */
+
+/* Header items */
+.how-to-be-a-hero .sheet-header .header-stat-column .stat-content .header-item.rollable::after {
+  top: -10px;
+  right: -10px;
+  opacity: 1;
+}
+
+/* Talent scores */
+.how-to-be-a-hero .talent-scores .rollable::after {
+  top: 0px;
+  right: 4px;
+}
+
+/* Favorites */
+.how-to-be-a-hero .favorites .rollable::after {
+  top: 0;
+  right: 4px;
+}
+
+/* Items list */
+.how-to-be-a-hero .items-list .item-name.rollable::after {
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+}
+
+.how-to-be-a-hero .items-list .item-name.rollable:hover::after {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Pills and similar containers */
+.how-to-be-a-hero .pill-lg.rollable::after {
+  top: 4px;
+  right: 8px;
+}
+
+/* Ensure the d20 icon doesn't appear on rollable controls */
+.how-to-be-a-hero .item-controls .rollable::after,
+.how-to-be-a-hero .deletion-control.rollable::after,
+.how-to-be-a-hero button.rollable::after {
+  display: none;
+}
+
+/* ---------------------------------- */
+
 /* Biography Tab Styles */
 .how-to-be-a-hero .tab.biography {
   height: 100%;
@@ -1243,6 +1318,16 @@ item-list-controls search .filter-control[data-action="sort"] {
   .how-to-be-a-hero#pause {
     animation: none;
   }
+}
+.how-to-be-a-hero.sheet.actor.character .sheet-header .header-stat-column .stat-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
 /* ---------------------------------- */
@@ -2738,6 +2823,24 @@ a {
   flex: 1;
 }
 
+.how-to-be-a-hero .tab.details .talent-check {
+  display: block;
+  width: 100%;
+  position: relative;
+  padding-right: 30px;  /* Space for the d20 icon */
+}
+
+/* Adjust the rollable icon positioning specifically for talent checks */
+.how-to-be-a-hero .tab.details .talent-check.rollable::after {
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+.how-to-be-a-hero .tab.details .talent-check.rollable:hover::after {
+  transform: translateY(-50%) scale(1.1);
+}
+
 .how-to-be-a-hero .tab.details filigree-box > .header-content {
   display: flex;
   justify-content: space-between;
@@ -2764,6 +2867,9 @@ a {
   padding: 0;
   margin: 0;
   line-height: 1;
+  width: 100%;
+  display: block;
+  position: relative;
 }
 
 .how-to-be-a-hero .tab.details filigree-box > .header-content > .talent-values,
