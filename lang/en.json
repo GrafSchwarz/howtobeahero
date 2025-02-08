@@ -38,6 +38,18 @@
       "Inactive": "Inactive Effects"
     }
   },
+
+  "HTBAH.AbilityKnowledge": "Knowledge",
+  "HTBAH.AbilityAction": "Action",
+  "HTBAH.AbilitySocial": "Social",
+  "HTBAH.ItemRollPrompt": "{itemName} ({ability} Check)",
+  
+  "HTBAH.WealthCheck": "Roll for Wealth",
+  "HTBAH.TalentCheck": "Roll for Talent",
+  "HTBAH.KnowledgeCheck": "Roll for Knowledge",
+  "HTBAH.ActionCheck": "Roll for Action",
+  "HTBAH.SocialCheck": "Roll for Social",
+  "HTBAH.Check": "Roll Check",
   
   "HTBAH.Appearance": "Appearance description",
   "HTBAH.Age": "Age",

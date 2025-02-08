@@ -74,6 +74,7 @@
   --htbah-highlight-45: rgba(255, 255, 255, 0.45);
   --font-size-9: 0.5625rem;
   --font-size-10: 0.625rem;
+  --font-size-21: 1.1375rem;
   --font-size-23: 1.4375rem;
   --font-size-30: 1.875rem;
   --font-size-36: 2.25rem;
@@ -507,6 +508,32 @@ item-list-controls search .filter-control[data-action="sort"] {
 .how-to-be-a-hero .talent-scores .rollable::after {
   top: 0px;
   right: 4px;
+}
+
+.how-to-be-a-hero .sidebar .card .stats .wealth-roll.rollable::after {
+  font-size: 23px;
+  color: var(--htbah-color-gold);
+  top: 15px;
+  right: 4px;
+  transform: none;
+  background: var(--htbah-color-maroon);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6px var(--htbah-shadow-45);
+}
+
+.how-to-be-a-hero .sidebar .card .stats .wealth-roll.rollable:hover::after {
+  box-shadow: 0 0 8px var(--htbah-color-black);
+}
+
+.how-to-be-a-hero .favorites .rollable::after {
+  top: 0;
+  right: 4px;
+  transform: none;
 }
 
 /* Favorites */
@@ -1884,7 +1911,7 @@ item-list-controls search .filter-control[data-action="sort"] {
   --size: 36px;
   padding: 0;
   position: absolute;
-  left: -18px;
+  left: 45px;
   top: 30%;
   transform: translateY(-50%);
   width: var(--size);
@@ -2252,14 +2279,79 @@ a {
   margin-bottom: -1rem;
   border: none;
   filter: drop-shadow(0 0 8px var(--htbah-color-black));
-}.how-to-be-a-hero.sheet.actor.character .sheet-body .sidebar .card .stats .top {
+}
+
+.how-to-be-a-hero.sheet.actor.character .sheet-body .sidebar .card .stats .top {
   display: flex;
   align-items: start;
   justify-content: space-between;
   position: relative;
   /* Exhaustion */
+  /* Wealth*/
   /* AC */
 }
+
+/* Wealth container styles */
+.how-to-be-a-hero .sidebar .card .stats .wealth { 
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  background: transparent url(../ui/wealth.webp) no-repeat center / contain;
+  color: var(--color-text-light-0);
+  font-size: var(--font-size-21);
+  font-family: var(--htbah-font-roboto);
+  font-weight: bold;
+  margin-top: -35px;
+  filter: drop-shadow(0 0 6px var(--color-shadow-dark));
+  position: relative;
+}
+
+/* Edit mode input styles */
+.how-to-be-a-hero .sidebar .card .stats .wealth input {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin-top: 8px;
+  outline: none;
+  line-height: inherit;
+}
+
+/* Play mode link styles */
+.how-to-be-a-hero .sidebar .card .stats .wealth .wealth-roll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  padding: 0;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: text-shadow 0.2s ease;
+}
+
+.how-to-be-a-hero .sidebar .card .stats .wealth .wealth-roll:hover {
+  text-shadow: 0 0 8px var(--htbah-color-gold);
+}
+
+/* Remove default focus styles */
+.how-to-be-a-hero .sidebar .card .stats .wealth input:hover,
+.how-to-be-a-hero .sidebar .card .stats .wealth input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .how-to-be-a-hero.sheet.actor.character .sheet-body .sidebar .card .stats .top .pips .pip.filled.death::before {
   content: "\f54c";
   font-family: var(--font-awesome);

@@ -39,6 +39,13 @@
     }
   },
 
+  "HTBAH.WealthCheck": "Wurf auf Reichtum",
+  "HTBAH.TalentCheck": "Wurf auf Talent",
+  "HTBAH.KnowledgeCheck": "Wurf auf Wissen",
+  "HTBAH.ActionCheck": "Wurf auf Handeln",
+  "HTBAH.SocialCheck": "Wurf auf Soziales",
+  "HTBAH.Check": "Prüfen",
+
   "HTBAH.Appearance": "Beschreibung des Äußeren",
   "HTBAH.Age": "Alter",
   "HTBAH.Alignment": "Gesinnung",

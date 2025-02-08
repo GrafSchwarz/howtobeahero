@@ -39,8 +39,44 @@ export async function d100Roll({
   roll.isCriticalFailure = total >= fumbleThreshold;
 
   if (chatMessage) {
+    // Get roll type from flags
+    const rollType = messageData.flags?.howtobeahero?.roll?.type || "default";
+    const abilityName = messageData.flags?.howtobeahero?.roll?.abilityName;
+    
+    // Define header icons and titles based on roll type
+    const headerConfig = {
+      knowledge: {
+        icon: '<i class="fas fa-book-open" style="color: #191970;"></i>',
+        title: abilityName || game.i18n.localize("HTBAH.KnowledgeCheck")
+      },
+      action: {
+        icon: '<i class="fas fa-fist-raised" style="color: #8B0000;"></i>',
+        title: abilityName || game.i18n.localize("HTBAH.ActionCheck")
+      },
+      social: {
+        icon: '<i class="fas fa-comments" style="color: #4B0082;"></i>',
+        title: abilityName || game.i18n.localize("HTBAH.SocialCheck")
+      },
+      wealth: {
+        icon: '<i class="fas fa-coins" style="color:rgb(255, 149, 0);"></i>',
+        title: game.i18n.localize("HTBAH.WealthCheck")
+      },
+      talent: {
+        icon: '<i class="fas fa-star" style="color: #4169E1;"></i>',
+        title: abilityName || game.i18n.localize("HTBAH.Talent")
+      },
+      default: {
+        icon: '<i class="fas fa-dice-d20"></i>',
+        title: flavor || game.i18n.localize("HTBAH.Check")
+      }
+    };
+
+    // Get header configuration for this roll type
+    const header = headerConfig[rollType] || headerConfig.default;
+
     const rollDetails = `
       <div class="roll-details">
+        <h3 class="roll-header">${header.title} ${header.icon}</h3>
         <p>Roll: ${total}</p>
         <p>Target: ${totalTargetValue}</p> 
         <p>(Base: ${baseValue}, Bonus: ${bonusValue}, Inspiration: +${inspirationBonus})</p>

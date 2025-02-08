@@ -996,8 +996,14 @@ async _onUseFavorite(event) {
       }
     });
 
+    // Add wealth roll listener
+    html.find('.wealth-roll').on('click', this._onRollWealth.bind(this));
+
     // Initiative roll handler
     html.find('.header-stat-column .fa-dice-d20').parent().on('click', this._onRollInitiative.bind(this));
+
+    // Handle number input changes
+    html.find('input[type="number"]').change(this._onNumberChange.bind(this));
 
     // Initialize tabs
     this._tabs = this._createTabHandlers();
@@ -1095,6 +1101,25 @@ async _onUseFavorite(event) {
     
     return item.roll();
   }
+
+  _onNumberChange(event) {
+    event.preventDefault();
+    const input = event.currentTarget;
+    const value = input.value;
+    const name = input.name;
+    
+    this.actor.update({[name]: value});
+  }
+  /**
+     * Handle wealth roll button click
+     * @param {Event} event The originating click event
+     * @private
+     */
+  async _onRollWealth(event) {
+    event.preventDefault();
+    await this.actor.rollWealth();
+  }
+
   /* -------------------------------------------- */
 
   /**
@@ -1315,7 +1340,7 @@ async _onUseFavorite(event) {
     // Check if user has permission to edit
     const hasPermission = this.actor.isOwner || game.user.isGM;
     if (!hasPermission) return;
-    
+
     const container = event.currentTarget.closest(".hit-points");
     const input = container.querySelector("input[name='system.baseattributes.health.value']");
     const value = container.querySelector(".value");

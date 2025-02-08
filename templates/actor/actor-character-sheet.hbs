@@ -127,31 +127,46 @@
             <div class="top">
                 {{!-- AC --}}
                 <div class="ac" aria-label="{{ localize "HTBAH.ArmorClass" }}">
-                    {{!--
-                    {{#if editable}}
-                    <a class="config-button" data-action="armor" data-tooltip="HTBAH.ArmorConfig"
-                      aria-label="{{ localize "HTBAH.ArmorConfig" }}">
-                        <i class="fas fa-cog"></i>
-                    </a>
-                    {{else}}
-                    --}}
                     <div data-attribution="attributes.armor" data-attribution-caption="HTBAH.ArmorClass"
                         data-tooltip-direction="DOWN">
                         <input type="text" name="system.baseattributes.armor.value" data-dtype="Number" placeholder="0"
-                        value="{{ system.baseattributes.armor.value }}">
+                        value="{{ system.baseattributes.armor.value }}" disabled>
                     </div>
                 </div>
+
+                {{!-- Treasure --}}
+                <div class="wealth" aria-label="{{ localize "HTBAH.Wealth" }}">
+                  {{#if editable}}
+                      <input type="number" name="system.details.wealth.value" data-dtype="Number" placeholder="0"
+                      value="{{ system.details.wealth.value }}">
+                      {{else}}
+                      <a class="wealth-roll rollable" title="{{localize 'HTBAH.RollWealth'}}">
+                         {{system.details.wealth.value}}
+                      </a>
+                  {{/if}}
+                </div>
+
                 {{!-- Inspiration & Button --}}
                 <div class="right">
                 {{!-- Value of the Inspiration --}}
                 <div class="inspirationValue" aria-label="{{ localize "HTBAH.InspirationValue" }}">
-                        <input type="text" name="system.baseattributes.inspiration.value" data-dtype="Number" placeholder="0"
-                        value="{{ system.baseattributes.inspiration.value }}"></div>
+                  {{#if editable}}
+                    <input type="number" name="system.baseattributes.inspiration.value" data-dtype="Number" placeholder="0"
+                    value="{{ system.baseattributes.inspiration.value }}"></div>
 
-                  {{!-- Inspiration --}}
-                  <button type="button" class="inspiration unbutton" data-action="toggleInspiration" aria-label="{{ localize "
+                    {{!-- Inspiration --}}
+                    <button type="button" class="inspiration unbutton" data-action="toggleInspiration" aria-label="{{ localize "
                     HTBAH.Inspiration" }}" data-tooltip="HTBAH.Inspiration"
                     aria-pressed="{{ system.baseattributes.inspiration.status }}"></button>
+                    {{else}}
+                    <input type="number" name="system.baseattributes.inspiration.value" data-dtype="Number" placeholder="0"
+                    value="{{ system.baseattributes.inspiration.value }}" disabled></div>
+
+                    {{!-- Inspiration --}}
+                    <button type="button" class="inspiration unbutton" data-action="toggleInspiration" aria-label="{{ localize "
+                    HTBAH.Inspiration" }}" data-tooltip="HTBAH.Inspiration"
+                    aria-pressed="{{ system.baseattributes.inspiration.status }}" disabled></button>
+                  {{/if}}
 
                 </div>
             </div>
