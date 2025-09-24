@@ -45,6 +45,9 @@
       "Description": "Beschreibung",
       "Formula": "Formel"
     },
+    "PACKS":{
+      "rules": "Regeln"
+    },
     "SheetLabels": {
       "Actor": "HowToBeAHero Charakterbogen",
       "Item": "HowToBeAHero Gegenstandsbogen"
