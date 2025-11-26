@@ -21,3 +21,6 @@
 - add compact-combat mode
 - add parry functionality
 - extensive css updates for actor- and item-sheets
+
+## 1.0.1
+- Hotfix for discovered minor bugs in character sheet (#78)
