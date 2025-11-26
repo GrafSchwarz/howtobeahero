@@ -133,6 +133,7 @@
   "HTBAH.GiveItemError": "Failed to give item: {error}",
 
   "HTBAH.ItemEdit": "Edit",
+  "HTBAH.ItemView": "View",
   "HTBAH.ItemDelete": "Delete",
 
   "HTBAH.Description": "Description",

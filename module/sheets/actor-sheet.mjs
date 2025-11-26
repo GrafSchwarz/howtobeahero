@@ -609,8 +609,8 @@ export class HowToBeAHeroActorSheet extends HandlebarsApplicationMixin(foundry.a
    * Setup the edit mode toggle in the header
    */
   _setupModeToggle() {
-    // Only show mode toggles to GM users
-    if (!this.isEditable || !game.user.isGM) return;
+    // Only show mode toggles to users with edit permission
+    if (!this.isEditable) return;
 
     const header = this.element.querySelector(".window-header");
     if (!header || header.querySelector(".mode-slider")) return; // Avoid duplicates
@@ -1151,6 +1151,7 @@ export class HowToBeAHeroActorSheet extends HandlebarsApplicationMixin(foundry.a
    * Handle initiative rolls
    */
   async _onRollInitiative(event, target) {
+    if (!this.document.isOwner && !game.user.isGM) return;
     return this.document.rollInitiative({createCombatants: true});
   }
 
@@ -1158,12 +1159,14 @@ export class HowToBeAHeroActorSheet extends HandlebarsApplicationMixin(foundry.a
    * Handle header ability rolls
    */
   async _onRollHeaderAbility(event, target) {
+    if (!this.document.isOwner && !game.user.isGM) return;
+
     const abilityId = this.document.getFlag("how-to-be-a-hero", "headerAbility");
     if (!abilityId) return;
-    
+
     const item = this.document.items.get(abilityId);
     if (!item) return;
-    
+
     return item.roll();
   }
 
@@ -1171,12 +1174,14 @@ export class HowToBeAHeroActorSheet extends HandlebarsApplicationMixin(foundry.a
    * Handle header weapon rolls
    */
   async _onRollHeaderWeapon(event, target) {
+    if (!this.document.isOwner && !game.user.isGM) return;
+
     const weaponId = this.document.getFlag("how-to-be-a-hero", "headerWeapon");
     if (!weaponId) return;
-    
+
     const item = this.document.items.get(weaponId);
     if (!item) return;
-    
+
     return item.roll();
   }
 
@@ -1184,12 +1189,14 @@ export class HowToBeAHeroActorSheet extends HandlebarsApplicationMixin(foundry.a
    * Handle header parry rolls
    */
   async _onRollHeaderParry(event, target) {
+    if (!this.document.isOwner && !game.user.isGM) return;
+
     const parryId = this.document.getFlag("how-to-be-a-hero", "headerParry");
     if (!parryId) return;
-    
+
     const item = this.document.items.get(parryId);
     if (!item) return;
-    
+
     return item.roll();
   }
 
@@ -1275,6 +1282,8 @@ export class HowToBeAHeroActorSheet extends HandlebarsApplicationMixin(foundry.a
    * Handle skill set rolls
    */
   async _onRollSkillSet(event, target) {
+    if (!this.document.isOwner && !game.user.isGM) return;
+
     const skillSetId = target.dataset.skillset;
     this.document.rollSkillSet(skillSetId, { event });
   }
@@ -1298,6 +1307,7 @@ export class HowToBeAHeroActorSheet extends HandlebarsApplicationMixin(foundry.a
         break;
       case "roll":
       case "rollItem":
+        if (!this.document.isOwner && !game.user.isGM) return;
         if (item) item.roll();
         break;
       case "equip":
@@ -1361,9 +1371,11 @@ export class HowToBeAHeroActorSheet extends HandlebarsApplicationMixin(foundry.a
    * Handle using favorites
    */
   async _onUseFavorite(event, target) {
+    if (!this.document.isOwner && !game.user.isGM) return;
+
     const { favoriteId } = target.closest("[data-favorite-id]").dataset;
     const favorite = await fromUuid(favoriteId, { relative: this.document });
-    
+
     if (favorite instanceof Item) {
       return favorite.roll();
     }

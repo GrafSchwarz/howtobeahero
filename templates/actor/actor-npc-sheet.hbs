@@ -35,7 +35,7 @@
         <div class="header-stat-column">
           <div class="stat-header">{{ localize "HTBAH.Initiative" }}</div>
           <div class="stat-content">
-            <i class="fas fa-dice-d20"></i>
+            <i class="fas fa-dice-d20" {{#if (or actor.isOwner user.isGM)}}data-action="rollInitiative" role="button"{{/if}} aria-label="{{ localize 'HTBAH.RollInitiative' }}"></i>
           </div>
         </div>
 
@@ -43,7 +43,7 @@
           <div class="stat-header">{{ localize "HTBAH.Skill" }}</div>
           <div class="stat-content">
             {{#if headerItems.ability}}
-              <div class="header-item rollable" data-item-id="{{headerItems.ability._id}}" data-action="rollSkill">
+              <div class="header-item {{#if (or actor.isOwner user.isGM)}}rollable{{/if}}" data-item-id="{{headerItems.ability._id}}" {{#if (or actor.isOwner user.isGM)}}data-action="rollSkill"{{/if}}>
                 <img src="{{headerItems.ability.img}}" alt="{{headerItems.ability.name}}" title="{{headerItems.ability.name}}">
                 {{#if editable}}
                 <a class="item-remove" data-action="removeSkill" data-tooltip="{{ localize "HTBAH.Remove" }}">
@@ -62,7 +62,7 @@
           <div class="stat-header">{{ localize "HTBAH.Weapon" }}</div>
           <div class="stat-content">
             {{#if headerItems.weapon}}
-              <div class="header-item rollable" data-item-id="{{headerItems.weapon._id}}" data-action="rollWeapon">
+              <div class="header-item {{#if (or actor.isOwner user.isGM)}}rollable{{/if}}" data-item-id="{{headerItems.weapon._id}}" {{#if (or actor.isOwner user.isGM)}}data-action="rollWeapon"{{/if}}>
                 <img src="{{headerItems.weapon.img}}" alt="{{headerItems.weapon.name}}" title="{{headerItems.weapon.name}}">
                 {{#if editable}}
                 <a class="item-remove" data-action="removeWeapon" data-tooltip="{{ localize "HTBAH.Remove" }}">
@@ -174,7 +174,7 @@
                   </div>
                   <div class="tmp">
                     <input type="text" name="system.attributes.health.temp" data-dtype="Number" placeholder="{{ localize "HTBAH.TMP" }}"
-                      value="{{ temp }}">
+                      value="{{ temp }}" {{#unless (or @root.actor.isOwner @root.user.isGM)}}readonly{{/unless}}>
                   </div>
                 </div>
                 {{/with}}
@@ -187,11 +187,11 @@
               </div>
               {{#with system.attributes.mana}}
                 <div class="meter sectioned mana-points">
-                  <div class="progress mana-points" 
-                       role="meter" 
+                  <div class="progress mana-points"
+                       role="meter"
                        aria-valuemin="0"
-                       aria-valuenow="{{ value }}" 
-                       aria-valuemax="{{ max }}" 
+                       aria-valuenow="{{ value }}"
+                       aria-valuemax="{{ max }}"
                        style="--bar-percentage: {{ ../manaPercentage }}%">
                     <div class="label">
                       <span class="value">{{ value }}</span>
@@ -203,7 +203,7 @@
                   </div>
                   <div class="tmp">
                     <input type="text" name="system.attributes.mana.temp" data-dtype="Number" placeholder="{{ localize "HTBAH.TMP" }}"
-                      value="{{ temp }}">
+                      value="{{ temp }}" {{#unless (or @root.actor.isOwner @root.user.isGM)}}readonly{{/unless}}>
                   </div>
                 </div>
               {{/with}}

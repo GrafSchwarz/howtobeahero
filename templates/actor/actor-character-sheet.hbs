@@ -24,7 +24,7 @@
         <div class="header-stat-column">
           <div class="stat-header">{{ localize "HTBAH.Initiative" }}</div>
           <div class="stat-content">
-            <i class="fas fa-dice-d20" data-action="rollInitiative" role="button" aria-label="{{ localize 'HTBAH.RollInitiative' }}"></i>
+            <i class="fas fa-dice-d20" {{#if (or actor.isOwner user.isGM)}}data-action="rollInitiative" role="button"{{/if}} aria-label="{{ localize 'HTBAH.RollInitiative' }}"></i>
           </div>
         </div>
 
@@ -32,7 +32,7 @@
           <div class="stat-header">{{ localize "HTBAH.Skill" }}</div>
           <div class="stat-content">
             {{#if headerItems.ability}}
-              <div class="header-item rollable" data-item-id="{{headerItems.ability.id}}" data-action="rollHeaderAbility">
+              <div class="header-item {{#if (or actor.isOwner user.isGM)}}rollable{{/if}}" data-item-id="{{headerItems.ability.id}}" {{#if (or actor.isOwner user.isGM)}}data-action="rollHeaderAbility"{{/if}}>
                 <img src="{{headerItems.ability.img}}" alt="{{headerItems.ability.name}}" title="{{headerItems.ability.name}}">
                 {{#if editable}}
                 <a class="item-remove" data-action="removeSkill" data-tooltip="{{ localize "HTBAH.Remove" }}">
@@ -50,7 +50,7 @@
           <div class="stat-header">{{ localize "HTBAH.Weapon" }}</div>
           <div class="stat-content">
             {{#if headerItems.weapon}}
-              <div class="header-item rollable" data-item-id="{{headerItems.weapon.id}}" data-action="rollHeaderWeapon">
+              <div class="header-item {{#if (or actor.isOwner user.isGM)}}rollable{{/if}}" data-item-id="{{headerItems.weapon.id}}" {{#if (or actor.isOwner user.isGM)}}data-action="rollHeaderWeapon"{{/if}}>
                 <img src="{{headerItems.weapon.img}}" alt="{{headerItems.weapon.name}}" title="{{headerItems.weapon.name}}">
                 {{#if editable}}
                 <a class="item-remove" data-action="removeWeapon" data-tooltip="{{ localize "HTBAH.Remove" }}">
@@ -68,7 +68,7 @@
           <div class="stat-header">{{ localize "HTBAH.Parry" }}</div>
           <div class="stat-content">
             {{#if headerItems.parry}}
-              <div class="header-item rollable" data-item-id="{{headerItems.parry.id}}" data-action="rollHeaderParry">
+              <div class="header-item {{#if (or actor.isOwner user.isGM)}}rollable{{/if}}" data-item-id="{{headerItems.parry.id}}" {{#if (or actor.isOwner user.isGM)}}data-action="rollHeaderParry"{{/if}}>
                 <img src="{{headerItems.parry.img}}" alt="{{headerItems.parry.name}}" title="{{headerItems.parry.name}}">
                 {{#if editable}}
                 <a class="item-remove" data-action="removeParry" data-tooltip="{{ localize "HTBAH.Remove" }}">
@@ -161,10 +161,10 @@
                       </div>
                     </div>
                     <div class="tmp">
-                      <input type="text" 
-                             name="system.attributes.health.temp" 
-                             data-dtype="Number" 
-                             placeholder="{{ localize "HTBAH.TMP" }}" 
+                      <input type="text"
+                             name="system.attributes.health.temp"
+                             data-dtype="Number"
+                             placeholder="{{ localize "HTBAH.TMP" }}"
                              value="{{ temp }}">
                     </div>
                   </div>
@@ -173,19 +173,19 @@
                 {{!-- Play Mode: Click to edit HP --}}
                 {{#with system.attributes.health}}
                   <div class="meter sectioned hit-points">
-                    <div class="progress hit-points {{~#if (gt tempmax 0)}} temp-positive{{~else if (lt tempmax 0)}} temp-negative{{/if}}" 
-                         role="meter" 
+                    <div class="progress hit-points {{~#if (gt tempmax 0)}} temp-positive{{~else if (lt tempmax 0)}} temp-negative{{/if}}"
+                         role="meter"
                          aria-valuemin="0"
-                         aria-valuenow="{{ value }}" 
-                         aria-valuemax="{{ max }}" 
+                         aria-valuenow="{{ value }}"
+                         aria-valuemax="{{ max }}"
                          style="--bar-percentage: {{ ../healthPercentage }}%"
-                         data-action="toggleEditHP" data-edit="true">
+                         {{#if (or @root.actor.isOwner @root.user.isGM)}}data-action="toggleEditHP" data-edit="true"{{/if}}>
                       <div class="label">
                         <span class="value">{{ value }}</span>
-                        <input type="text" 
-                               name="system.attributes.health.value" 
-                               data-dtype="Number" 
-                               value="{{ value }}" 
+                        <input type="text"
+                               name="system.attributes.health.value"
+                               data-dtype="Number"
+                               value="{{ value }}"
                                style="display: none">
                         <span class="separator">&sol;</span>
                         <span class="max">{{ max }}</span>
@@ -195,11 +195,12 @@
                       </div>
                     </div>
                     <div class="tmp">
-                      <input type="text" 
-                             name="system.attributes.health.temp" 
-                             data-dtype="Number" 
-                             placeholder="{{ localize "HTBAH.TMP" }}" 
-                             value="{{ temp }}">
+                      <input type="text"
+                             name="system.attributes.health.temp"
+                             data-dtype="Number"
+                             placeholder="{{ localize "HTBAH.TMP" }}"
+                             value="{{ temp }}"
+                             {{#unless (or @root.actor.isOwner @root.user.isGM)}}readonly{{/unless}}>
                     </div>
                   </div>
                 {{/with}}
@@ -244,13 +245,13 @@
                 {{!-- Play Mode: Click to edit Mana --}}
                 {{#with system.attributes.mana}}
                   <div class="meter sectioned mana-points">
-                    <div class="progress mana-points" 
-                         role="meter" 
+                    <div class="progress mana-points"
+                         role="meter"
                          aria-valuemin="0"
-                         aria-valuenow="{{ value }}" 
-                         aria-valuemax="{{ max }}" 
+                         aria-valuenow="{{ value }}"
+                         aria-valuemax="{{ max }}"
                          style="--bar-percentage: {{ ../manaPercentage }}%"
-                         data-action="toggleEditMana" data-edit="true">
+                         {{#if (or @root.actor.isOwner @root.user.isGM)}}data-action="toggleEditMana" data-edit="true"{{/if}}>
                       <div class="label">
                         <span class="value">{{ value }}</span>
                         <input type="text" 

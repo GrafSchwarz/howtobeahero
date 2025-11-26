@@ -122,6 +122,7 @@
   "HTBAH.GiveItemError": "Fehler beim Übergeben des Gegenstands: {error}",
 
   "HTBAH.ItemEdit": "Bearbeiten",
+  "HTBAH.ItemView": "Anzeigen",
   "HTBAH.ItemDelete": "Löschen",
 
   "HTBAH.Description": "Beschreibung",

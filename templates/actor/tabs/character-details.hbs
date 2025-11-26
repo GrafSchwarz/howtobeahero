@@ -52,7 +52,8 @@
                             type="number"
                             name="system.attributes.skillSets.{{skillSet.key}}.eureka"
                             value="{{skillSet.eureka.value}}"
-                            data-dtype="Number">
+                            data-dtype="Number"
+                            {{#unless @root.owner}}readonly{{/unless}}>
                     </div>
                     <div class="delimiter flex1">
                         /

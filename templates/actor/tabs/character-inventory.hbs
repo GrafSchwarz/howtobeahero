@@ -55,7 +55,8 @@
                             </a>
                             {{/if}}
                             <input type="text" value="{{system.quantity}}" placeholder="0" data-dtype="Number"
-                                data-name="system.quantity" inputmode="numeric" pattern="[0-9+=\-]*" min="0">
+                                data-name="system.quantity" inputmode="numeric" pattern="[0-9+=\-]*" min="0"
+                                {{#unless @root.owner}}readonly{{/unless}}>
                             {{#if @root.owner}}
                             <a class="adjustment-button" data-action="adjustQuantity" data-direction="increase" data-property="system.quantity">
                                 <i class="fas fa-plus"></i>
@@ -67,7 +68,8 @@
                             {{#if ctx.hasUses}}
                             <input type="text" value="{{system.uses.value}}" min="0" max="{{system.uses.max}}"
                                 placeholder="0" data-dtype="Number" inputmode="numeric" pattern="[0-9+=\-]*"
-                                data-name="system.uses.value">
+                                data-name="system.uses.value"
+                                {{#unless @root.owner}}readonly{{/unless}}>
                             / {{system.uses.max}}
                             {{else}}
                             <span class="no-uses">-</span>

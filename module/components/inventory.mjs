@@ -417,6 +417,7 @@ export default class InventoryElement extends HTMLElement {
       case "unfavorite":
         return this.actor.system.removeFavorite(`Actor.${this.actor.id}.Item.${item.id}`); // Use the full UUID
       case "use":
+        if (!this.actor?.isOwner && !game.user.isGM) return;
         return item.use({}, { event });
       case "giveItem":
         return this._onGiveItem(item);
