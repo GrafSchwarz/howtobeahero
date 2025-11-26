@@ -46,6 +46,9 @@
       "Description": "Description",
       "Formula": "Formula"
     },
+    "PACKS":{
+      "rules": "Rules"
+    },
     "SheetLabels": {
       "Actor": "HowToBeAHero Actor Sheet",
       "Item": "HowToBeAHero Item Sheet"

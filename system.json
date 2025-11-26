@@ -45,6 +45,16 @@
       "path": "lang/de.json"
     }
   ],
+  "packs": [
+    {
+      "name": "rules",
+      "label": "HOW_TO_BE_A_HERO.PACKS.rules",
+      "type": "JournalEntry",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    }
+  ],
   "socket": true,
   "manifest": "https://raw.githubusercontent.com/GrafSchwarz/howtobeahero/refs/heads/main/system.json",
   "download": "https://github.com/GrafSchwarz/howtobeahero/archive/refs/heads/main.zip",
