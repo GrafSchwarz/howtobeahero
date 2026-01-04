@@ -1,26 +1,54 @@
-name: Release Creation
+name: Release
 
 on:
+  push:
+    tags:
+      - "v*"
   workflow_dispatch:
-  release:
-    types: [published]
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    # Create zip file with all necessary system files
-    - name: Create System Archive
-      run: zip how-to-be-a-hero.zip -r assets css lang module packs templates LICENSE.txt README.md system.json template.json -x "packs/_source/*" -x ".*" -x "*/.*"
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
 
-    # Upload the zip file to the release
-    - name: Upload Release Files
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        gh release upload ${{ github.ref_name }} how-to-be-a-hero.zip system.json --clobber
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build release bundle
+        run: npm run build:release
+
+      - name: Create archive for GitHub release
+        run: |
+          cd release
+          zip -r ../how-to-be-a-hero.zip .
+          cp system.json ../system.json
+
+      - name: Create release
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view "${{ github.ref_name }}" >/dev/null 2>&1 || \
+            gh release create "${{ github.ref_name }}" --title "${{ github.ref_name }}" --notes ""
+
+      - name: Upload release files
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload "${{ github.ref_name }}" how-to-be-a-hero.zip system.json --clobber
+
+      - name: Publish to npm
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish
