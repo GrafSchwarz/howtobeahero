@@ -1,12 +1,16 @@
 {
   "id": "how-to-be-a-hero",
   "title": "How to be a Hero",
-  "description": "The How to be a Hero system for FoundryVTT! (Beta)",
-  "version": "1.0.1",
+  "description": "The How to be a Hero system for FoundryVTT!",
+  "version": "1.1.0",
   "authors": [
     {
       "name": "GrafSchwarz",
       "discord": "GrafSchwarz"
+    },
+    {
+      "name": "McGreger",
+      "discord": "McGreger"
     }
   ],
   "url": "https://github.com/GrafSchwarz/howtobeahero",

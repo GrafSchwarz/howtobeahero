@@ -1,6 +1,6 @@
 {
   "name": "how-to-be-a-hero",
-  "version": "2.0.0",
+  "version": "1.1.0",
   "description": "CSS compiler for the HowToBeAHero system",
   "scripts": {
     "build:css": "node -e \"const { existsSync } = require('fs'); const { spawnSync } = require('child_process'); const path='src/scss/how-to-be-a-hero.scss'; if (!existsSync(path)) { console.log('Skipping CSS build: '+path+' not found'); process.exit(0); } const res = spawnSync('sass',[path,'css/how-to-be-a-hero.css','--style=expanded','--no-source-map'],{stdio:'inherit'}); process.exit(res.status ?? 0);\"",
