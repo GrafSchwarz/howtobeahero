@@ -16,10 +16,7 @@
   ],
   "author": "Asacolips",
   "license": "MIT",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
+  "private": true,
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^2.0.0",
     "sass": "^1.53.0"
