@@ -1,0 +1,7 @@
+node_modules/
+release/
+.packs-build/
+how-to-be-a-hero.zip
+*.log
+npm-debug.log*
+.DS_Store
