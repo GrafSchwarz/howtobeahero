@@ -1,0 +1,20 @@
+type: JournalEntry
+folder: null
+name: German
+color: null
+sorting: a
+_id: WizFMmWgmSdWRf7F
+description: ''
+sort: 0
+flags: {}
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.348'
+  systemId: how-to-be-a-hero
+  systemVersion: 1.0.0
+  createdTime: 1758745459451
+  modifiedTime: 1758745459451
+  lastModifiedBy: cUNxlsjFMiCN7Htp
+_key: '!folders!WizFMmWgmSdWRf7F'

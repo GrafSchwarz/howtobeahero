@@ -11,12 +11,12 @@ npm install
 ```
 
 ## Build commands
-- `npm run build:release` — cleans and rebuilds `release/` with runtime-only files (assets, css, lang, module, generated pack DBs, templates, ui, pics, manifest, docs). Safe to run even if packs or SCSS sources are missing.
-- `npm run build` — runs CSS + pack builds (writes CSS output and pack DBs).
-- `npm run pack` — compiles compendium YAML from `packs/<pack-name>/` into `.packs-build/` (DB files). Skips if no pack folders exist.
-- `npm run unpack` — extracts `.db` files from `.packs-build/` back into YAML under `packs/<pack-name>/` (overwrites existing pack folders).
-- `npm run build:css` — builds `css/how-to-be-a-hero.css` from `src/scss/how-to-be-a-hero.scss`. Skips if the SCSS entrypoint is missing.
-- `npm run watch` — watches SCSS; requires `src/scss/how-to-be-a-hero.scss` to exist.
+- `npm run build:release` - cleans and rebuilds `release/` with runtime-only files (assets, css, lang, module, generated pack DBs, templates, ui, pics, manifest, docs). Safe to run even if packs or SCSS sources are missing.
+- `npm run build` - runs CSS + pack builds (writes CSS output and pack DBs).
+- `npm run pack` - compiles compendium YAML from `packs/<pack-name>/` into `.packs-build/` (DB files). Skips if no pack folders exist.
+- `npm run unpack` - extracts compendium DBs from `.packs-build/` (falls back to `release/packs` when present) back into YAML under `packs/<pack-name>/` (overwrites existing pack folders).
+- `npm run build:css` - builds `css/how-to-be-a-hero.css` from `src/scss/how-to-be-a-hero.scss`. Skips if the SCSS entrypoint is missing.
+- `npm run watch` - watches SCSS; requires `src/scss/how-to-be-a-hero.scss` to exist.
 
 ## Recommended workflow for local Foundry testing
 1) Build the release folder:

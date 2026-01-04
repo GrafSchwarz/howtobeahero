@@ -1,10 +1,11 @@
-const { existsSync, readdirSync, statSync, mkdirSync, rmSync } = require("fs");
+const { existsSync, readdirSync, statSync, mkdirSync, rmSync, cpSync, readFileSync, writeFileSync } = require("fs");
 const path = require("path");
 const { spawnSync } = require("child_process");
 
 const cli = path.join("node_modules", "@foundryvtt", "foundryvtt-cli", "fvtt.mjs");
 const outRoot = "packs"; // YAML destination
-const srcRoot = ".packs-build"; // DB source
+const srcCandidates = [".packs-build", path.join("release", "packs")]; // DB sources (preferred first)
+const workingRoot = ".packs-unpack-tmp"; // temp copy to normalize LevelDB files
 const systemId = "how-to-be-a-hero";
 
 if (!existsSync(cli)) {
@@ -12,26 +13,59 @@ if (!existsSync(cli)) {
   process.exit(1);
 }
 
-if (!existsSync(srcRoot)) {
-  console.log(`Skipping pack unpack: ${srcRoot} not found.`);
+const srcRoot = srcCandidates.find((dir) => existsSync(dir));
+if (!srcRoot) {
+  console.log(`Skipping pack unpack: none of ${srcCandidates.join(", ")} found.`);
   process.exit(0);
 }
 
-// Find .db files in srcRoot
-const dbFiles = readdirSync(srcRoot)
-  .map((entry) => path.join(srcRoot, entry))
-  .filter((p) => statSync(p).isFile() && p.endsWith(".db"));
+console.log(`Using pack source: ${srcRoot}`);
 
-if (!dbFiles.length) {
-  console.log(`No .db files found in ${srcRoot}; nothing to unpack.`);
+function isLevelDbDirectory(dirPath) {
+  const entries = readdirSync(dirPath);
+  return entries.some((entry) => entry === "CURRENT" || entry.endsWith(".ldb"));
+}
+
+// Find compendium DBs (LevelDB dirs or .db files) in srcRoot
+const dbEntries = readdirSync(srcRoot)
+  .map((entry) => {
+    const p = path.join(srcRoot, entry);
+    return { path: p, stats: statSync(p) };
+  })
+  .filter(({ path: p, stats }) => {
+    if (stats.isFile()) return p.endsWith(".db");
+    if (stats.isDirectory()) return isLevelDbDirectory(p);
+    return false;
+  });
+
+if (!dbEntries.length) {
+  console.log(`No compendium DBs found in ${srcRoot}; nothing to unpack.`);
   process.exit(0);
 }
 
 // Ensure destination exists
 if (!existsSync(outRoot)) mkdirSync(outRoot, { recursive: true });
+// Ensure working directory is clean
+if (existsSync(workingRoot)) rmSync(workingRoot, { recursive: true, force: true });
+mkdirSync(workingRoot, { recursive: true });
 
-for (const dbPath of dbFiles) {
-  const compendiumName = path.basename(dbPath, ".db");
+for (const { path: dbPath, stats } of dbEntries) {
+  const compendiumName = path.basename(dbPath).replace(/\.db$/, "");
+  const workingPackPath = path.join(workingRoot, compendiumName);
+  if (existsSync(workingPackPath)) rmSync(workingPackPath, { recursive: true, force: true });
+
+  // Copy to a temp location so we can normalize the LevelDB CURRENT file (CRLF breaks classic-level on Windows)
+  if (stats.isDirectory()) {
+    cpSync(dbPath, workingPackPath, { recursive: true });
+    const currentFile = path.join(workingPackPath, "CURRENT");
+    if (existsSync(currentFile)) {
+      const manifestLine = readFileSync(currentFile, "utf8").split(/\n/)[0]?.trim();
+      if (manifestLine) writeFileSync(currentFile, `${manifestLine}\n`);
+    }
+  } else {
+    cpSync(dbPath, workingPackPath);
+  }
+
   const destDir = path.join(outRoot, compendiumName);
   if (existsSync(destDir)) rmSync(destDir, { recursive: true, force: true });
   mkdirSync(destDir, { recursive: true });
@@ -47,7 +81,7 @@ for (const dbPath of dbFiles) {
     "--compendiumName",
     compendiumName,
     "--inputDirectory",
-    srcRoot,
+    workingRoot,
     "--outputDirectory",
     destDir,
     "--yaml",
@@ -62,5 +96,8 @@ for (const dbPath of dbFiles) {
     process.exit(res.status);
   }
 }
+
+// Clean up working copies
+rmSync(workingRoot, { recursive: true, force: true });
 
 console.log("Unpack complete.");

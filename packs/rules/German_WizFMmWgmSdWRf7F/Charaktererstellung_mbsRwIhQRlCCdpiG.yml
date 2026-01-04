@@ -1,0 +1,402 @@
+folder: WizFMmWgmSdWRf7F
+name: Charaktererstellung
+_id: mbsRwIhQRlCCdpiG
+pages:
+  - sort: 100000
+    name: Begabungen
+    type: text
+    _id: oZvuSvMWPqmvYbJ2
+    system: {}
+    title:
+      show: true
+      level: 1
+    image: {}
+    text:
+      format: 1
+      content: >-
+        <p>In <strong>How to be a Hero</strong> bilden drei Arten von Begabungen
+        die Grundlage für deinen Charakter und dessen Fähigkeiten: Handeln,
+        Wissen und Soziales.</p><p>Begabungen geben an, was deines Charakters in
+        einem bestimmten Feld von Fähigkeiten kann.</p><p>Solltest du eine
+        Aktion ausführen wollen, die du nie explizit gelernt hast, musst du eine
+        Probe auf den Wert der Begabung würfeln, zu der die entsprechende Aktion
+        zählt.</p><p>Was beinhalten diese
+        Begabungen?</p><p></p><table><tbody><tr><td
+        data-colwidth="110"><p>Handeln</p></td><td><p>Eine Handlung ist, was
+        dein Charakter aktiv tut, meist mit physischen Auswirkungen. Hierbei ist
+        es egal, ob der Charakter Bäume fällt oder auf einem Pferd reiten
+        möchte, all diese Fähigkeiten sind unter Handeln zu
+        finden.</p></td></tr><tr><td
+        data-colwidth="110"><p>Wissen</p></td><td><p>Wissen braucht dein
+        Charakter beispielsweise, um eine fremde Sprache zu verstehen,
+        politische Zusammenhänge einordnen zu können, mathematische
+        Zusammenhänge nachvollziehen oder Pflanzen und Tiere unterscheiden zu
+        können.</p></td></tr><tr><td
+        data-colwidth="110"><p>Soziales</p></td><td><p>Soziale Fähigkeiten
+        werden vor allem bei der Interaktion mit NSCs notwendig. Wenn dein
+        Charakter beispielsweise mit einem Händler feilschen möchte, versucht,
+        jemanden zu manipulieren oder anhand seiner Menschenkenntnis zu
+        erkennen, ob er belogen wird.</p></td></tr></tbody></table><h2>Zum
+        Nachlesen</h2><p>Die Werte der Begabungen ergeben sich aus den in einer
+        Begabung eingesetzten Fähigkeitspunkten geteilt durch 10. Es wird
+        kaufmännisch (also ab 5) aufgerundet.</p><pre><code>Beispiel:
+
+        - 123 Punkte in Handeln ausgegeben = 12 Punkte in Handeln
+
+        - 129 Punkte in Handeln ausgegeben = 13 Punkte in Handeln
+
+        </code></pre><h2>Handeln</h2><p>Handeln hat vor allem eine physische
+        Komponente. Körperlich anstrengende Aktionen (bspw. das Anheben eines
+        schweren Gegenstands) zählen genauso in diese Gruppe wie feinmotorische
+        Aktionen (bspw. das Schnitzen einer Holzfigur).</p><p>Hier einige
+        Beispiele für typische Fähigkeiten, die unter Handeln
+        fallen:</p><table><tbody><tr><td><pre><code>Klettern
+
+        Rennen
+
+        Schlagen
+
+        Treten
+
+        Schießen
+
+        Schneidern
+
+        Kochen
+
+        Heben
+
+        Tischlern
+
+        Angeln
+
+        Holzschnitzen
+
+        Verstecken</code></pre></td><td><img
+        src="https://howtobeahero.de/images/7/75/Howky_handeln.png" width="300"
+        height="312" /></td></tr></tbody></table><h2>Wissen</h2><p>Fähigkeiten,
+        die in der Gruppe Wissen heimisch sind, gelten oft als neutral und
+        analytisch.</p><p>Hierunter fallen meist geistige Fähigkeiten, die
+        besonders von Intelligenz und Bildung abhängen, wie beispielsweise
+        Fremdsprachen, Spuren lesen oder Pflanzenkunde.</p><p>Hier sind einige
+        Beispiele für Fähigkeiten, die unter Wissen
+        fallen:</p><table><tbody><tr><td><pre><code>Deutsch
+
+        Polnisch
+
+        Englisch
+
+        Latein
+
+        Modedesign
+
+        Geographie
+
+        Spuren lesen
+
+        Politik
+
+        Mathematik
+
+        Literatur
+
+        Fauna
+
+        Flora
+
+        Programmieren
+
+        Wahrnehmung</code></pre></td><td><img
+        src="https://howtobeahero.de/images/0/0b/Howky_lesen.png" width="300"
+        height="300" /></td></tr></tbody></table><h2>Soziales</h2><p>Soziales
+        beschreibt Fähigkeiten mit sozialem Ausmaß, also alles, was mit
+        zwischenmenschlicher Interaktion zu tun hat.</p><p>Hierzu gehören aktive
+        Fähigkeiten wie Lügen oder Manipulieren, aber auch passive Fähigkeiten
+        wie beispielsweise Menschenkenntnis.</p><p>Zu guter Letzt auch hier
+        nochmal einige typische Fähigkeiten, die unter Soziales
+        fallen:</p><p></p><table><tbody><tr><td><pre><code>Feilschen
+
+        Lügen
+
+        Menschenkenntnis
+
+        Manipulieren
+
+        Betören
+
+        Beeindrucken
+
+        Unterhalten
+
+        Einschüchtern
+
+        Begeistern
+
+        Beruhigen</code></pre></td><td><img
+        src="https://howtobeahero.de/images/f/fc/Howky_sozial.png" width="300"
+        height="300" /></td></tr></tbody></table>
+    video:
+      controls: true
+      volume: 0.5
+    src: null
+    category: null
+    ownership:
+      default: -1
+      cUNxlsjFMiCN7Htp: 3
+    flags: {}
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.348'
+      systemId: how-to-be-a-hero
+      systemVersion: 1.0.0
+      createdTime: 1758745492328
+      modifiedTime: 1758747984895
+      lastModifiedBy: cUNxlsjFMiCN7Htp
+    _key: '!journal.pages!mbsRwIhQRlCCdpiG.oZvuSvMWPqmvYbJ2'
+  - sort: 200000
+    name: Fähigkeiten
+    type: text
+    _id: hGqvr8PZcNa4OjzJ
+    system: {}
+    title:
+      show: true
+      level: 1
+    image: {}
+    text:
+      format: 1
+      content: >-
+        <p>Fähigkeiten sind, wie der Name schon andeutet, Tätigkeiten, die ein
+        Charakter explizit gelernt oder gemeistert hat. Es ist immer besser für
+        eine Aktion, eine passende Fähigkeit zur Hand zu haben, als zu
+        versuchen, auf die Begabung zu würfeln.</p><p>Fähigkeiten lassen sich
+        immer in eine der drei Begabungen einordnen. Solltest du dir nicht
+        sicher sein, welcher Begabung eine Fähigkeit zuzuordnen ist, entscheidet
+        der Spielleiter.</p><p>Der eigentliche Fähigkeitswert wird aus den
+        eingesetzten Fähigkeitspunkten und dem Begabungswert errechnet. Der
+        Bonus wird zu jeder Fähigkeit addiert, es sei denn, ein Spieler möchte
+        dies explizit nicht.</p><p>Genauer erklärt ist dies in der rechnerischen
+        Charaktererstellung.</p><h2>Zum Nachlesen</h2><p>Der eigentliche Wert
+        einer Fähigkeit, auf den letzten Endes gewürfelt wird, besteht aus den
+        für diese Fähigkeit eingesetzten Punkten zuzüglich des Wertes der
+        entsprechenden Begabung.</p><pre><code>Beispiel:
+
+        Hartmut hat insgesamt 200 seiner Punkte in Handeln gesteckt (Handeln =
+        20) und 50 davon in Holzfällen (Holzfällen = 50). Sein endgültiger Wert
+        in Holzfällen berechnet sich folgendermaßen:
+
+
+        Holzfällen 50 + Handeln 20 = Holzfällen 70</code></pre><p></p>
+    video:
+      controls: true
+      volume: 0.5
+    src: null
+    category: null
+    ownership:
+      default: -1
+      cUNxlsjFMiCN7Htp: 3
+    flags: {}
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.348'
+      systemId: how-to-be-a-hero
+      systemVersion: 1.0.0
+      createdTime: 1758746075538
+      modifiedTime: 1758746203903
+      lastModifiedBy: cUNxlsjFMiCN7Htp
+    _key: '!journal.pages!mbsRwIhQRlCCdpiG.hGqvr8PZcNa4OjzJ'
+  - sort: 300000
+    name: Geistesblitzpunkte
+    type: text
+    _id: O3JsHKuGT0tlj7ON
+    system: {}
+    title:
+      show: true
+      level: 1
+    image: {}
+    text:
+      format: 1
+      content: >-
+        <p>Geistesblitzpunkte bieten dir die Möglichkeit, dein Schicksal selbst
+        in die Hand zu nehmen. Und das geht so:</p><p>Geistesblitzpunkte
+        erlauben dir, noch einmal auf eine verpatzte Probe zu würfeln, solange
+        der erste Wurf kein kritischer Misserfolg war. Dazu nimmst du die
+        Grundwerte der einzelnen Gruppen Handeln, Wissen und Soziales, die du
+        zuvor schon berechnet hast, und teilst sie noch einmal durch
+        10.</p><p>Nicht schummeln! Es wird kaufmännisch gerundet. Wenn du also
+        einen Begabungswert von 12 hast, erhältst du in dieser Gruppe nur einen
+        Geistesblitzpunkt. Wenn du einen Begabungswert von 15 hast, erhältst du
+        2 Geistesblitzpunkte. Die Geistesblitzpunkte gelten nur für die
+        jeweilige Begabung.</p><p>Du kannst also keinen Geistesblitzpunkt von
+        Wissen für eine verpatzte Probe auf Rennen (Handeln) verwenden. Zudem
+        sind eingesetzte Punkte für den Moment verbraucht.</p><p>Wenn du also
+        wie im Beispiel oben nur einen Geistesblitzpunkt in einer Begabung hast,
+        dann überlege dir gut, wann du ihn einsetzen möchtest.</p><p>Die
+        Geistesblitzpunkte sind einen Abend bzw. ein Abenteuer lang gültig. Das
+        bedeutet, dass sie sich erst wieder regenerieren, wenn ihr das Abenteuer
+        beendet habt. Ungenutzte Geistesblitzpunkte sind nicht in den nächsten
+        Abend oder das nächste Abenteuer übertragbar. Wird also ein zweites
+        Abenteuer mit denselben Charakteren gespielt, so beginnt ihr wieder mit
+        einem vollen Geistesblitz-Konto, nicht mehr und nicht
+        weniger.</p><p>Müsst ihr ein Abenteuer aus Zeitgründen auf mehrere
+        Abende verteilen, so regenerieren sich die Geistesblitzpunkte bis zum
+        nächsten Abend.</p><img
+        src="https://howtobeahero.de/images/c/cb/Howky_geistesblitz.png"
+        width="300" height="300" class="mw-file-element" data-file-width="400"
+        data-file-height="400" /><p></p>
+    video:
+      controls: true
+      volume: 0.5
+    src: null
+    category: null
+    ownership:
+      default: -1
+      cUNxlsjFMiCN7Htp: 3
+    flags: {}
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.348'
+      systemId: how-to-be-a-hero
+      systemVersion: 1.0.0
+      createdTime: 1758746210525
+      modifiedTime: 1758746251194
+      lastModifiedBy: cUNxlsjFMiCN7Htp
+    _key: '!journal.pages!mbsRwIhQRlCCdpiG.O3JsHKuGT0tlj7ON'
+  - sort: 400000
+    name: Rechnerische Charaktererstellung
+    type: text
+    _id: Si2bSm8tzrWxmaYO
+    system: {}
+    title:
+      show: true
+      level: 1
+    image: {}
+    text:
+      format: 1
+      content: >-
+        <h2>Vorwort</h2><p>Nun sind wir nach all den Erklärungen endlich bei der
+        tatsächlichen Charaktererstellung angekommen. Falls du etwas
+        nachschlagen willst, schaue einfach auf die Kästen mit der Aufschrift:
+        <strong>Zum Nachlesen</strong> in den Artikeln Begabungen und
+        Fähigkeiten.</p><p>Zunächst ein kleines Vorwort. Jeder Mensch ist in
+        gewissen Dingen besser oder schlechter als andere. Manche Dinge erlernen
+        sich leichter, andere schwerer. Wenn eine Person z.B. sehr fit ist, wird
+        sie wohl wenigstens eine Sportart, wenn nicht sogar mehrere, betreiben
+        und entsprechend mehr Ausdauer haben als jemand, der dies nicht
+        tut.</p><p>Eine studierte Person wird wahrscheinlich ein breiteres
+        Wissensspektrum haben und ein Comedian im Zwischenmenschlichen kein
+        kompletter Volltrottel sein.</p><p>Deshalb ergeben sich die Werte der
+        Begabungen aus den Werten der Fähigkeiten.</p><h2><span
+        class="mw-headline" id="Errechnung">Errechnung</span></h2><p>Jeder
+        Charakter erhält zunächst 400 Fähigkeitspunkte. Zuerst solltest du also
+        Fähigkeiten auf deine Begabungen aufteilen und diese auf den Charakter
+        abstimmmen. Ist das erledigt, nimm ganz einfach alle Fähigkeitspunkte
+        innerhalb einer Begabung zusammen und teile sie durch 10. Eine Fähigkeit
+        darf nicht auf den Wert 0 gesetzt werden.</p><p>Hierbei ist kaufmännisch
+        zu runden.</p><blockquote><p>Beispiel:</p><pre><code>129 Punkte in der
+        Begabung Handeln = Handeln 13</code></pre></blockquote><p>Wenn alle
+        deine Punkte in Fähigkeiten investiert wurden, sind es nur noch zwei
+        kleine Schritte zum (rechnerisch) fertigen Charakter.</p><p>Nun rechnen
+        wir die Geistesblitzpunkte aus. Nimm also einfach deine Begabungswerte
+        und teile sie jeweils durch 10.</p><p>Hierbei ist kaufmännisch zu
+        runden.</p><blockquote><p>Beispiel:</p><pre><code>Handeln 13 geteilt
+        durch 10 = 1,3 = 1 Geistesblitzpunkt in Handeln
+
+        Handeln 18 geteilt durch 10 = 1,8 = 2 Geistesblitzpunkte in
+        Handeln</code></pre></blockquote><p>Da die Begabungen ebenfalls angeben,
+        wie gut oder leicht man Dinge erlernt, haben diese auch einen Einfluss
+        auf die Fähigkeiten.</p><p>Nun nimm einfach den Wert der Begabung und
+        addiere ihn auf jede Fähigkeit, die dazu
+        gehört.</p><blockquote><p>Beispiel:</p><pre><code>Holzfällen 50 +
+        Handeln 13 = Holzfällen 63</code></pre></blockquote><p>Und schon ist
+        dein Charakter fertig!</p><p>Zu guter Letzt ist anzumerken, dass keine
+        Fähigkeiten über 100 Punkte haben kann. Wenn du bei deiner Rechnung für
+        eine Fähigkeit einen Wert größer als 100 rausbekommst, setze die
+        überzähligen Punkte anderweitig innerhalb dieser Begabung
+        ein.</p><p>Hier noch zwei Empfehlungen, um den Spielspaß zu
+        maximieren:</p><pre><code>Meide Fähigkeiten mit niedrigen Werten.
+        Einfach einen oder nur 5 Punkte auf jede Fähigkeit zu verteilen, ist
+        wenig sinnvoll.
+
+        Wenn es ein Spieler unbedingt will, kann er bei bestimmten Fähigkeiten
+        auch auf den Bonus der Begabung
+        verzichten.</code></pre><h2>Charakterentwicklung in
+        Tabellenform</h2><p>Howkys Charakterbogen (400 Punkte):</p><p>Erst
+        verteilen ...</p><table><tbody><tr><td><p><span
+        style="display:block;width:100%;font-family:var(--font-h2);font-size:var(--font-h2-size);color:var(--color-text-emphatic);line-height:1;border-bottom:1px
+        solid var(--color-warm-3)">Handeln</span></p></td><td
+        data-colwidth="186"><p><span
+        style="display:block;width:100%;font-family:var(--font-h2);font-size:var(--font-h2-size);color:var(--color-text-emphatic);line-height:1;border-bottom:1px
+        solid var(--color-warm-3)">Wissen</span></p></td><td><p><span
+        style="display:block;width:100%;font-family:var(--font-h2);font-size:var(--font-h2-size);color:var(--color-text-emphatic);line-height:1;border-bottom:1px
+        solid var(--color-warm-3)">Soziales</span></p></td></tr><tr
+        style="vertical-align:top"><td><p>Ausgegeben:</p><ul><li><p>Fußball
+        spielen: 40</p></li><li><p>Beweglichkeit: 30</p></li></ul></td><td
+        data-colwidth="186"><p>Ausgegeben:</p><ul><li><p>Pen-and-Paper
+        Konzeption: 75</p></li><li><p>Verrückte Hintergrundgeschichten:
+        40</p></li><li><p>Medienmarketing:
+        55</p></li></ul></td><td><p>Ausgegeben:</p><ul><li><p>Schauspielern:
+        68</p></li><li><p>Wikis Illustrieren: 40</p></li><li><p>Interaktion mit
+        Bohnen:
+        52</p><p></p></li></ul></td></tr></tbody></table><p>zusammenrechnen
+        ...</p><table><tbody><tr><td><p><span
+        style="display:block;width:100%;font-family:var(--font-h2);font-size:var(--font-h2-size);color:var(--color-text-emphatic);line-height:1;border-bottom:1px
+        solid var(--color-warm-3)">Handeln</span></p></td><td
+        data-colwidth="186"><p><span
+        style="display:block;width:100%;font-family:var(--font-h2);font-size:var(--font-h2-size);color:var(--color-text-emphatic);line-height:1;border-bottom:1px
+        solid var(--color-warm-3)">Wissen</span></p></td><td><p><span
+        style="display:block;width:100%;font-family:var(--font-h2);font-size:var(--font-h2-size);color:var(--color-text-emphatic);line-height:1;border-bottom:1px
+        solid var(--color-warm-3)">Soziales</span></p></td></tr><tr
+        style="vertical-align:top"><td><p>Ausgegeben:
+        <strong>70</strong></p><ul><li><p>Fußball spielen:
+        40</p></li><li><p>Beweglichkeit: 30</p></li></ul></td><td
+        data-colwidth="186"><p>Ausgegeben:
+        <strong>170</strong></p><ul><li><p>Pen-and-Paper Konzeption:
+        75</p></li><li><p>Verrückte Hintergrundgeschichten:
+        40</p></li><li><p>Medienmarketing:
+        55</p></li></ul></td><td><p>Ausgegeben:
+        <strong>160</strong></p><ul><li><p>Schauspielern:
+        68</p></li><li><p>Wikis Illustrieren: 40</p></li><li><p>Interaktion mit
+        Bohnen: 52</p><p></p></li></ul></td></tr></tbody></table>
+    video:
+      controls: true
+      volume: 0.5
+    src: null
+    category: null
+    ownership:
+      default: -1
+      cUNxlsjFMiCN7Htp: 3
+    flags: {}
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.348'
+      systemId: how-to-be-a-hero
+      systemVersion: 1.0.0
+      createdTime: 1758748022845
+      modifiedTime: 1758750386403
+      lastModifiedBy: cUNxlsjFMiCN7Htp
+    _key: '!journal.pages!mbsRwIhQRlCCdpiG.Si2bSm8tzrWxmaYO'
+categories: []
+sort: 0
+ownership:
+  default: 0
+  cUNxlsjFMiCN7Htp: 3
+flags: {}
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.348'
+  systemId: how-to-be-a-hero
+  systemVersion: 1.0.0
+  createdTime: 1758745477236
+  modifiedTime: 1758745477236
+  lastModifiedBy: cUNxlsjFMiCN7Htp
+_key: '!journal!mbsRwIhQRlCCdpiG'

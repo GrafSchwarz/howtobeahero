@@ -45,6 +45,15 @@
       "path": "lang/de.json"
     }
   ],
+  "packs": [
+    {
+      "name": "rules",
+      "label": "Rules",
+      "path": "packs/rules",
+      "type": "JournalEntry",
+      "system": "how-to-be-a-hero"
+    }
+  ],
   "socket": true,
   "manifest": "https://github.com/GrafSchwarz/howtobeahero/releases/latest/download/system.json",
   "download": "https://github.com/GrafSchwarz/howtobeahero/releases/latest/download/how-to-be-a-hero.zip",
