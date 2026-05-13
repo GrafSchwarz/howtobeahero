@@ -78,27 +78,27 @@ export default class EffectsElement extends HTMLElement {
   _getContextOptions(effect) {
     const options = [
       {
-        name: "HTBAH.ContextMenuActionEdit",
+        label: "HTBAH.ContextMenuActionEdit",
         icon: "<i class='fas fa-edit fa-fw'></i>",
-        condition: () => effect.isOwner,
+        visible: () => effect.isOwner,
         callback: li => this._onAction(li[0], "edit")
       },
       {
-        name: "HTBAH.ContextMenuActionDuplicate",
+        label: "HTBAH.ContextMenuActionDuplicate",
         icon: "<i class='fas fa-copy fa-fw'></i>",
-        condition: () => effect.isOwner,
+        visible: () => effect.isOwner,
         callback: li => this._onAction(li[0], "duplicate")
       },
       {
-        name: "HTBAH.ContextMenuActionDelete",
+        label: "HTBAH.ContextMenuActionDelete",
         icon: "<i class='fas fa-trash fa-fw'></i>",
-        condition: () => effect.isOwner,
+        visible: () => effect.isOwner,
         callback: li => this._onAction(li[0], "delete")
       },
       {
-        name: effect.disabled ? "HTBAH.ContextMenuActionEnable" : "HTBAH.ContextMenuActionDisable",
+        label: effect.disabled ? "HTBAH.ContextMenuActionEnable" : "HTBAH.ContextMenuActionDisable",
         icon: effect.disabled ? "<i class='fas fa-check fa-fw'></i>" : "<i class='fas fa-times fa-fw'></i>",
-        condition: () => effect.isOwner,
+        visible: () => effect.isOwner,
         callback: li => this._onAction(li[0], "toggle")
       }
     ];
@@ -107,9 +107,9 @@ export default class EffectsElement extends HTMLElement {
       const uuid = effect.getRelativeUUID(this.document);
       const isFavorited = this.document.system.hasFavorite(uuid);
       options.push({
-        name: isFavorited ? "HTBAH.FavoriteRemove" : "HTBAH.Favorite",
+        label: isFavorited ? "HTBAH.FavoriteRemove" : "HTBAH.Favorite",
         icon: "<i class='fas fa-star fa-fw'></i>",
-        condition: () => effect.isOwner,
+        visible: () => effect.isOwner,
         callback: li => this._onAction(li[0], isFavorited ? "unfavorite" : "favorite")
       });
     }
