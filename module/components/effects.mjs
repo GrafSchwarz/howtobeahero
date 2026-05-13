@@ -80,25 +80,25 @@ export default class EffectsElement extends HTMLElement {
       {
         name: "HTBAH.ContextMenuActionEdit",
         icon: "<i class='fas fa-edit fa-fw'></i>",
-        condition: () => effect.isOwner,
+        visible: () => effect.isOwner,
         callback: li => this._onAction(li[0], "edit")
       },
       {
         name: "HTBAH.ContextMenuActionDuplicate",
         icon: "<i class='fas fa-copy fa-fw'></i>",
-        condition: () => effect.isOwner,
+        visible: () => effect.isOwner,
         callback: li => this._onAction(li[0], "duplicate")
       },
       {
         name: "HTBAH.ContextMenuActionDelete",
         icon: "<i class='fas fa-trash fa-fw'></i>",
-        condition: () => effect.isOwner,
+        visible: () => effect.isOwner,
         callback: li => this._onAction(li[0], "delete")
       },
       {
         name: effect.disabled ? "HTBAH.ContextMenuActionEnable" : "HTBAH.ContextMenuActionDisable",
         icon: effect.disabled ? "<i class='fas fa-check fa-fw'></i>" : "<i class='fas fa-times fa-fw'></i>",
-        condition: () => effect.isOwner,
+        visible: () => effect.isOwner,
         callback: li => this._onAction(li[0], "toggle")
       }
     ];
@@ -109,7 +109,7 @@ export default class EffectsElement extends HTMLElement {
       options.push({
         name: isFavorited ? "HTBAH.FavoriteRemove" : "HTBAH.Favorite",
         icon: "<i class='fas fa-star fa-fw'></i>",
-        condition: () => effect.isOwner,
+        visible: () => effect.isOwner,
         callback: li => this._onAction(li[0], isFavorited ? "unfavorite" : "favorite")
       });
     }
