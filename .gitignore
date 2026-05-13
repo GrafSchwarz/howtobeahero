@@ -11,3 +11,6 @@ packs/rules/LOG
 .gitignore
 .gitignore
 packs/rules/MANIFEST-000002
+packs/rules/LOG.old
+.gitignore
+packs/rules/MANIFEST-000006
