@@ -24,3 +24,6 @@
 
 ## 1.0.1
 - Hotfix for discovered minor bugs in character sheet (#78)
+
+## 1.1.0
+- Release final version for Foundry 13 (v13.351)
