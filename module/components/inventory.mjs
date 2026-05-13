@@ -251,31 +251,31 @@ export default class InventoryElement extends HTMLElement {
     // Standard Options
     const options = [
       {
-        name: "HTBAH.ContextMenuActionEdit",
+        label: "HTBAH.ContextMenuActionEdit",
         icon: "<i class='fas fa-edit fa-fw'></i>",
         visible: () => item.isOwner && !isEditMode,
         callback: li => this._onAction(li, "edit")
       },
       {
-        name: "HTBAH.ItemView",
+        label: "HTBAH.ItemView",
         icon: '<i class="fas fa-eye"></i>',
         visible: () => !item.isOwner,
         callback: li => this._onAction(li, "view")
       },
       {
-        name: "HTBAH.ContextMenuActionDuplicate",
+        label: "HTBAH.ContextMenuActionDuplicate",
         icon: "<i class='fas fa-copy fa-fw'></i>",
         visible: () => !item.system.metadata?.singleton && !["class", "subclass"].includes(item.type) && item.isOwner,
         callback: li => this._onAction(li, "duplicate")
       },
       {
-        name: "HTBAH.ContextMenuActionDelete",
+        label: "HTBAH.ContextMenuActionDelete",
         icon: "<i class='fas fa-trash fa-fw'></i>",
         visible: () => item.isOwner && !isEditMode,
         callback: li => this._onAction(li, "delete")
       },
       {
-        name: "HTBAH.ContextMenuActionGiveItem",
+        label: "HTBAH.ContextMenuActionGiveItem",
         icon: "<i class='fas fa-handshake fa-fw'></i>",
         visible: () => {
           const transferableTypes = ["item", "consumable", "weapon", "armor", "tool"];
@@ -289,7 +289,7 @@ export default class InventoryElement extends HTMLElement {
 
     // Toggle Equipped State - only show in edit mode (in play mode it's shown as a button)
     if ( "equipped" in item.system ) options.push({
-      name: item.system.equipped ? "HTBAH.Unequip" : "HTBAH.Equip",
+      label: item.system.equipped ? "HTBAH.Unequip" : "HTBAH.Equip",
       icon: "<i class='fas fa-shield-alt fa-fw'></i>",
       visible: () => item.isOwner && isEditMode,
       callback: li => this._onAction(li, "equip"),
@@ -301,7 +301,7 @@ export default class InventoryElement extends HTMLElement {
       const uuid = foundry.utils.buildRelativeUuid(item, this.actor);
       const isFavorited = this.actor.system.hasFavorite(uuid);
       options.push({
-        name: isFavorited ? "HTBAH.FavoriteRemove" : "HTBAH.Favorite",
+        label: isFavorited ? "HTBAH.FavoriteRemove" : "HTBAH.Favorite",
         icon: "<i class='fas fa-star fa-fw'></i>",
         visible: () => item.isOwner,
         callback: li => this._onAction(li, isFavorited ? "unfavorite" : "favorite"),
