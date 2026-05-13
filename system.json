@@ -30,6 +30,20 @@
     "verified": "14.361",
     "maximum": "14.999"
   },
+  "documentTypes": {
+    "Actor": {
+      "character": {},
+      "npc": {}
+    },
+    "Item": {
+      "item": {},
+      "consumable": {},
+      "weapon": {},
+      "armor": {},
+      "tool": {},
+      "ability": {}
+    }
+  },
   "esmodules": [
     "module/how-to-be-a-hero.mjs",
     "module/components/_module.mjs"
