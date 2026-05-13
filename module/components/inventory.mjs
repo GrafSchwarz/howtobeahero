@@ -254,25 +254,25 @@ export default class InventoryElement extends HTMLElement {
         label: "HTBAH.ContextMenuActionEdit",
         icon: "<i class='fas fa-edit fa-fw'></i>",
         visible: () => item.isOwner && !isEditMode,
-        callback: li => this._onAction(li, "edit")
+        onClick: li => this._onAction(li, "edit")
       },
       {
         label: "HTBAH.ItemView",
         icon: '<i class="fas fa-eye"></i>',
         visible: () => !item.isOwner,
-        callback: li => this._onAction(li, "view")
+        onClick: li => this._onAction(li, "view")
       },
       {
         label: "HTBAH.ContextMenuActionDuplicate",
         icon: "<i class='fas fa-copy fa-fw'></i>",
         visible: () => !item.system.metadata?.singleton && !["class", "subclass"].includes(item.type) && item.isOwner,
-        callback: li => this._onAction(li, "duplicate")
+        onClick: li => this._onAction(li, "duplicate")
       },
       {
         label: "HTBAH.ContextMenuActionDelete",
         icon: "<i class='fas fa-trash fa-fw'></i>",
         visible: () => item.isOwner && !isEditMode,
-        callback: li => this._onAction(li, "delete")
+        onClick: li => this._onAction(li, "delete")
       },
       {
         label: "HTBAH.ContextMenuActionGiveItem",
@@ -281,7 +281,7 @@ export default class InventoryElement extends HTMLElement {
           const transferableTypes = ["item", "consumable", "weapon", "armor", "tool"];
           return item.isOwner && transferableTypes.includes(item.type);
         },
-        callback: li => this._onAction(li, "giveItem")
+        onClick: li => this._onAction(li, "giveItem")
       }
     ];
 
@@ -292,7 +292,7 @@ export default class InventoryElement extends HTMLElement {
       label: item.system.equipped ? "HTBAH.Unequip" : "HTBAH.Equip",
       icon: "<i class='fas fa-shield-alt fa-fw'></i>",
       visible: () => item.isOwner && isEditMode,
-      callback: li => this._onAction(li, "equip"),
+      onClick: li => this._onAction(li, "equip"),
       group: "state"
     });
     
@@ -304,7 +304,7 @@ export default class InventoryElement extends HTMLElement {
         label: isFavorited ? "HTBAH.FavoriteRemove" : "HTBAH.Favorite",
         icon: "<i class='fas fa-star fa-fw'></i>",
         visible: () => item.isOwner,
-        callback: li => this._onAction(li, isFavorited ? "unfavorite" : "favorite"),
+        onClick: li => this._onAction(li, isFavorited ? "unfavorite" : "favorite"),
         group: "state"
       });
     }
