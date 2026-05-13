@@ -298,7 +298,7 @@ export default class InventoryElement extends HTMLElement {
     
     // Toggle Favorite State
     if ( ("favorites" in this.actor.system) ) {
-      const uuid = item.getRelativeUUID(this.actor);
+      const uuid = foundry.utils.buildRelativeUuid(item, this.actor);
       const isFavorited = this.actor.system.hasFavorite(uuid);
       options.push({
         name: isFavorited ? "HTBAH.FavoriteRemove" : "HTBAH.Favorite",
