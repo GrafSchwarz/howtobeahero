@@ -5,3 +5,9 @@ how-to-be-a-hero.zip
 *.log
 npm-debug.log*
 .DS_Store
+packs/rules/CURRENT
+packs/rules/LOCK
+packs/rules/LOG
+.gitignore
+.gitignore
+packs/rules/MANIFEST-000002
