@@ -309,7 +309,7 @@ export class HowToBeAHeroItemSheet extends HandlebarsApplicationMixin(foundry.ap
     
     // If editable, open file picker to change the image
     if (this.isEditable) {
-      const fp = new FilePicker({
+      const fp = new foundry.applications.apps.FilePicker.implementation({
         type: "image",
         current: img,
         callback: (path) => {
