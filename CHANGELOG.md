@@ -27,3 +27,6 @@
 
 ## 1.1.0
 - Release final version for Foundry 13 (v13.351)
+
+## 1.1.1
+- Release final version for Foundry 14 (v14.368)
