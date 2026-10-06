@@ -227,7 +227,7 @@ export class HowToBeAHeroActor extends Actor {
     }
     
     // Add combatant if requested and not already present
-    if (options.createCombatants && !combat.getCombatantByActor(this.id)) {
+    if (options.createCombatants && !combat.getCombatantsByActor(this.id).length) {
       await combat.createEmbeddedDocuments("Combatant", [{
         actorId: this.id,
         tokenId: this.token?.id
@@ -235,7 +235,7 @@ export class HowToBeAHeroActor extends Actor {
     }
     
     // Find the combatant
-    const combatant = combat.getCombatantByActor(this.id);
+    const combatant = combat.getCombatantsByActor(this.id)[0];
     if (combatant) {
       // Update the combatant's initiative
       await combat.setInitiative(combatant.id, roll.total);
